@@ -1,0 +1,30 @@
+<h1>Add New Superhero</h1>
+
+<% if @errors %>
+  <p>Re-check form:</p>
+  <ul>
+  <% @new_hero.errors.full_messages.each do |message| %>
+    <li style="color: red"><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@superhero) do |f| %>
+  <%= f.label :enter_birth_name %>
+  <%= f.text_field :name %>
+  <br />
+  <%= f.label :enter_super_name %>
+  <%= f.text_field :super_name %>
+  <br />
+  <%= f.label :select_superpower %>
+  <% options = options_from_collection_for_select(@superpowers, 'id', 'name') %>
+  <%= f.select :superpower_id,  options %>
+  <br />
+  <%= f.submit "Add This Hero!" %>
+<% end %>
+
+
+
+
+As a visitor to the website, I should be able to create a new superhero with its name and super name.
+The form should also allow each superhero to be created with only one of the existing superpowers.
