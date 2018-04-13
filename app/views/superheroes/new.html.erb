@@ -1,0 +1,9 @@
+<h1>Make a Superhero</h1>
+
+<%= form_for @superhero do |f| %>
+  Name: <%= f.text_field :name %>
+  Supername: <%= f.text_field :super_name %>
+  Superpower: <%= f.text_field :superpower%>
+  <%= f.submit "Create Superhero"%>
+  <% end %>
+
