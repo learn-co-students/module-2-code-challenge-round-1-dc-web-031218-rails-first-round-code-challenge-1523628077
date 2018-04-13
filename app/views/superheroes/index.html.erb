@@ -1,10 +1,22 @@
 <h2>All Superheroes</h2>
-
+<form action="/superheroes" method="post">
+  Search by super-power: <input style="width: 30%" type="text" name="filter" value="Not Working (see routes.rb)"/>
+  <input type="submit" value="Filter" />
+</form>
 <ul>
   <% @superheroes.each do |superhero| %>
     <li>
-      <%= superhero.super_name %>
+      <%= link_to superhero.super_name, superhero_path(superhero) %>
     </li>
     <br>
   <% end %>
 </ul>
+
+
+
+
+
+
+Add a filter to the index view of the superheroes. <br />
+This will allow the visitor to search for an <br />
+existing superpower and display all the superheroes with that superpower on the same view page.
